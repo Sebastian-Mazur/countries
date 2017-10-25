@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store/store';
 import routes from './routes';
-import {getCountries} from './actions/actions-countries';
+import {getCountry} from './actions/actions-countries';
 
 render(
     <Provider store={store}>
@@ -14,8 +14,8 @@ render(
     document.getElementById('root')    
 );
 
-store.dispatch(getCountries(1));
-store.dispatch(getCountries(2));
+store.dispatch(getCountry(1));
+store.dispatch(getCountry(2));
 
 
         
