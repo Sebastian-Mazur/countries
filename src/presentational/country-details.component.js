@@ -1,7 +1,8 @@
 import React from 'react';
+import '../styles/country.css';
 
-const CountryDetails = (props) => {
-    <div className='country-wrapped'>
+const CountryDetails = (props) => (
+    <div className='country-wrapper'>
         <header>
             <img className="country-photo" src={props.country.imageUrl} alt="country photo" />
         </header>
@@ -24,6 +25,6 @@ const CountryDetails = (props) => {
             </div>
         </div>
     </div>
-};
+);
 
 export default CountryDetails;
