@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getCountry } from '../actions/actions-countries';
 import CountryDetails from '../presentational/country-details.component';
 
-class CountryDetailsComponent extends Component {
+class CountryDetailsContainer extends Component {
     constructor(props) {
         super(props);
     }
@@ -24,3 +24,5 @@ const mapStateToProps = function (store) {
         selectedCountry: store.countriesReducer.selectedCountry
     };
 };
+
+export default connect(mapStateToProps)(CountryDetailsContainer);
