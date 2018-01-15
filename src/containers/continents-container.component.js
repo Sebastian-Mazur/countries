@@ -27,7 +27,8 @@ class ContinentsContainer extends Component {
                     <option value="Europa">Europa</option>
                     <option value="Afryka">Afryka</option>
                 </select>
-                <CountryFlagList countries={this.props.visibleCountries} deleteCountry={id =>this.deleteCountry(id)} />
+                <CountryFlagList countries={this.props.visibleCountries} deleteCountry={id => this.deleteCountry(id)} /> 
+                {/*or this.deleteCountry.bind(this) ?? */}
             </div>
         )
     }
