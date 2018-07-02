@@ -1,14 +1,22 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {
+    Component
+} from 'react';
+import {
+    connect
+} from 'react-redux';
 import CountryFlagList from '../presentational/flag-list.component';
-import { getCountries, searchCountries, deleteCountry } from '../actions/actions-countries';
+import {
+    getCountries,
+    searchCountries,
+    deleteCountry
+} from '../actions/actions-countries';
 import '../styles/country.css';
 
 class CountryFlagContainer extends Component {
     constructor(props) {
         super(props);
     }
-    
+
     componentDidMount() {
         this.props.dispatch(getCountries());
         this.props.dispatch(searchCountries(''));
@@ -23,15 +31,28 @@ class CountryFlagContainer extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <div className="search text-center">
-                    <input type="text" onChange={this.search.bind(this)} />
-                </div>
-                <CountryFlagList countries={this.props.visibleCountries} deleteCountry={id => this.deleteCountry(id)} /> // or this.deleteCountry.bind(this) ??
-            </div>
+        console.log(this.props.countries);
+        return ( <
+            div >
+            <
+            div className = "search text-center" >
+            <
+            input type = "text"
+            onChange = {
+                this.search.bind(this)
+            }
+            /> <
+            /div> <
+            CountryFlagList countries = {
+                this.props.visibleCountries
+            }
+            deleteCountry = {
+                id => this.deleteCountry(id)
+            }
+            /> <
+            /div>
         );
-    }  
+    }
 }
 
 const mapStateToProps = function (store) {
@@ -39,6 +60,6 @@ const mapStateToProps = function (store) {
         countries: store.countriesReducer.countries,
         visibleCountries: store.countriesReducer.visibleCountries
     }
-} 
+}
 
 export default connect(mapStateToProps)(CountryFlagContainer);

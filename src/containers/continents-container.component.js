@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { setContinent, deleteCountry } from '../actions/actions-countries';
-import CountryFlagList from '../presentational/flag-list.component';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { setContinent, deleteCountry } from "../actions/actions-countries";
+import CountryFlagList from "../presentational/flag-list.component";
 
 class ContinentsContainer extends Component {
     constructor(props) {
@@ -17,7 +17,7 @@ class ContinentsContainer extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(setContinent('Europa'));
+        this.props.dispatch(setContinent("Europa"));
     }
 
     render() {
@@ -27,14 +27,16 @@ class ContinentsContainer extends Component {
                     <option value="Europa">Europa</option>
                     <option value="Afryka">Afryka</option>
                 </select>
-                <CountryFlagList countries={this.props.visibleCountries} deleteCountry={id => this.deleteCountry(id)} /> 
-                {/*or this.deleteCountry.bind(this) ?? */}
+                <CountryFlagList
+                    countries={this.props.visibleCountries}
+                    deleteCountry={id => this.deleteCountry(id)}
+                />
             </div>
-        )
+        );
     }
 }
 
-const mapStateToProps = function (store) {
+const mapStateToProps = function(store) {
     return {
         visibleCountries: store.countriesReducer.visibleCountries
     };
